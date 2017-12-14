@@ -10,7 +10,14 @@ pipeline {
     stage('Inizialize') {
       steps {
         sh '''ls -a /root
-gradle clean'''
+ls -a /root/.gradle
+ls -a /root/.gradle/caches
+ls -a /root/.gradle/caches/jars-3
+gradle clean
+ls -a /root
+ls -a /root/.gradle
+ls -a /root/.gradle/caches
+ls -a /root/.gradle/caches/jars-3'''
       }
     }
     stage('Build') {
@@ -28,7 +35,9 @@ gradle clean'''
         stage('Print home') {
           steps {
             sh '''ls -a /root
-ls /root/.gradle/caches/jars-3'''
+ls -a /root/.gradle
+ls -a /root/.gradle/caches
+ls -a /root/.gradle/caches/jars-3'''
           }
         }
       }
