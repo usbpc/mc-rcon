@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''ls /root
+        sh '''ls -a /root
 gradle clean'''
       }
     }
@@ -27,8 +27,8 @@ gradle clean'''
         }
         stage('Print home') {
           steps {
-            sh '''ls /root
-ls /root/.gradle'''
+            sh '''ls -a /root
+ls /root/.gradle/caches'''
           }
         }
       }
