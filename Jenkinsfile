@@ -1,9 +1,25 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'gradle:jdk8-alpine'
+    }
+    
+  }
   stages {
     stage('Inizialize') {
       steps {
-        echo 'This is a minimal pipeline'
+        sh '''echo PATH = ${PATH}
+gradle clean'''
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'gradle jar'
+      }
+    }
+    stage('Archive') {
+      steps {
+        archiveArtifacts 'build/libs/*'
       }
     }
   }
