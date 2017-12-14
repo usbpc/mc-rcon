@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'gradle:jdk8-alpine'
-      args '-m 200m -v gradle_cache:~/.gradle'
+      args '-m 200m'
     }
     
   }
@@ -10,6 +10,7 @@ pipeline {
     stage('Inizialize') {
       steps {
         sh '''echo PATH = ${PATH}
+echo HOME = ${HOME}
 gradle clean'''
       }
     }
