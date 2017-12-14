@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'gradle:jdk8-alpine'
+      args '-m 200m'
     }
     
   }
