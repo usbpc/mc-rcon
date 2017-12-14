@@ -70,22 +70,6 @@ if [ -d "/root/.gradle/caches" ]; then
 fi
 if [ -d "/root/.gradle/caches/jars-3" ]; then
     ls -a /root/.gradle/caches/jars-3
-fi
-gradle clean
-if [ -d "/root" ]; then
-    ls -a /root
-fi
-if [ -d "/root/.gradle" ]; then
-    ls -a /root/.gradle
-fi
-if [ -d "/root/.gradle" ]; then
-    ls -a /root/.gradle
-fi
-if [ -d "/root/.gradle/caches" ]; then
-    ls -a /root/.gradle/caches
-fi
-if [ -d "/root/.gradle/caches/jars-3" ]; then
-    ls -a /root/.gradle/caches/jars-3
 fi'''
           }
         }
