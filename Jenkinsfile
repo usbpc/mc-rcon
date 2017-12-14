@@ -11,6 +11,7 @@ pipeline {
       steps {
         sh '''echo PATH = ${PATH}
 echo HOME = ${HOME}
+ls /root
 gradle clean'''
       }
     }
@@ -20,8 +21,18 @@ gradle clean'''
       }
     }
     stage('Archive') {
-      steps {
-        archiveArtifacts 'build/libs/*'
+      parallel {
+        stage('Archive') {
+          steps {
+            archiveArtifacts 'build/libs/*'
+          }
+        }
+        stage('Print home') {
+          steps {
+            sh '''ls /root
+ls /root/.gradle'''
+          }
+        }
       }
     }
   }
