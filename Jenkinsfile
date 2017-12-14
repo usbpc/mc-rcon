@@ -9,15 +9,37 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''ls -a /root
-ls -a /root/.gradle
-ls -a /root/.gradle/caches
-ls -a /root/.gradle/caches/jars-3
+        sh '''if [ -d "/root" ]; then
+    ls -a /root
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle/caches" ]; then
+    ls -a /root/.gradle/caches
+fi
+if [ -d "/root/.gradle/caches/jars-3" ]; then
+    ls -a /root/.gradle/caches/jars-3
+fi
 gradle clean
-ls -a /root
-ls -a /root/.gradle
-ls -a /root/.gradle/caches
-ls -a /root/.gradle/caches/jars-3'''
+if [ -d "/root" ]; then
+    ls -a /root
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle/caches" ]; then
+    ls -a /root/.gradle/caches
+fi
+if [ -d "/root/.gradle/caches/jars-3" ]; then
+    ls -a /root/.gradle/caches/jars-3
+fi'''
       }
     }
     stage('Build') {
@@ -34,10 +56,37 @@ ls -a /root/.gradle/caches/jars-3'''
         }
         stage('Print home') {
           steps {
-            sh '''ls -a /root
-ls -a /root/.gradle
-ls -a /root/.gradle/caches
-ls -a /root/.gradle/caches/jars-3'''
+            sh '''if [ -d "/root" ]; then
+    ls -a /root
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle/caches" ]; then
+    ls -a /root/.gradle/caches
+fi
+if [ -d "/root/.gradle/caches/jars-3" ]; then
+    ls -a /root/.gradle/caches/jars-3
+fi
+gradle clean
+if [ -d "/root" ]; then
+    ls -a /root
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle" ]; then
+    ls -a /root/.gradle
+fi
+if [ -d "/root/.gradle/caches" ]; then
+    ls -a /root/.gradle/caches
+fi
+if [ -d "/root/.gradle/caches/jars-3" ]; then
+    ls -a /root/.gradle/caches/jars-3
+fi'''
           }
         }
       }
