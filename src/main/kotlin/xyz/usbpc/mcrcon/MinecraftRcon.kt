@@ -17,8 +17,8 @@ class MinecraftRcon(host: String, port: Int) {
         get() = DataInputStream(inputStream)
     private val requestIdCounter: AtomicInteger = AtomicInteger(1)
 
-    fun command(cmd: String): String {
-        val response = send(RconPacket.RequestType.COMMAND, cmd.toByteArray())
+    fun command(command: String): String {
+        val response = send(RconPacket.RequestType.COMMAND, command.toByteArray())
         return response.payload.toString(Charset.defaultCharset())
     }
 
