@@ -1,5 +1,5 @@
 group 'xyz.usbpc.mcrcon'
-version "0.1.${System.getenv('BUILD_NUMBER')}"
+version "0.2.${System.getenv('BUILD_NUMBER')}"
 
 buildscript {
     ext.kotlin_version = '1.2.0'
