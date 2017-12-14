@@ -13,6 +13,7 @@ pipeline {
     ls -a /root
 fi
 if [ -d "/root/.gradle" ]; then
+    touch testFile
     ls -a /root/.gradle
 fi
 if [ -d "/root/.gradle" ]; then
