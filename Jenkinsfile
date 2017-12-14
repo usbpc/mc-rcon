@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''if [ -d "/root" ]; then
+        sh '''pwd
+if [ -d "/root" ]; then
     ls -a /root
 fi
 if [ -d "/root/.gradle" ]; then
@@ -45,7 +46,8 @@ fi'''
     }
     stage('Build') {
       steps {
-        sh 'gradle jar'
+        sh '''pwd
+gradle jar'''
       }
     }
     stage('Archive') {
@@ -57,7 +59,8 @@ fi'''
         }
         stage('Print home') {
           steps {
-            sh '''if [ -d "/root" ]; then
+            sh '''pwd
+if [ -d "/root" ]; then
     ls -a /root
 fi
 if [ -d "/root/.gradle" ]; then
