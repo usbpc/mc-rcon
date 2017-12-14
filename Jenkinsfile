@@ -28,7 +28,7 @@ gradle clean'''
         stage('Print home') {
           steps {
             sh '''ls -a /root
-ls /root/.gradle/caches'''
+ls /root/.gradle/caches/jars-3'''
           }
         }
       }
