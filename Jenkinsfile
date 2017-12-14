@@ -9,9 +9,7 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''echo PATH = ${PATH}
-echo HOME = ${HOME}
-ls /root
+        sh '''ls /root
 gradle clean'''
       }
     }
