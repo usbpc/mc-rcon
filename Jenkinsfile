@@ -25,8 +25,11 @@ pipeline {
           }
         }
         stage('Publish') {
+          environment {
+            BINTRAY_ACCESS = credentials('bintray-usbpc')
+          }
           steps {
-            sh 'echo Hello World'
+            sh 'echo Hello $BINTRAY_ACCESS_USR'
           }
         }
       }
