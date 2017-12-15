@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh 'gradle clean'
+        sh '''echo "$JENKINS_REPOSITORY"
+gradle clean'''
       }
     }
     stage('Build') {
