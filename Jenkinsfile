@@ -18,8 +18,17 @@ pipeline {
       }
     }
     stage('Archive') {
-      steps {
-        archiveArtifacts 'build/libs/*'
+      parallel {
+        stage('Archive') {
+          steps {
+            archiveArtifacts 'build/libs/*'
+          }
+        }
+        stage('Publish') {
+          steps {
+            sh 'echo Hello World'
+          }
+        }
       }
     }
   }
