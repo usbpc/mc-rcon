@@ -13,6 +13,7 @@ buildscript {
 }
 
 apply plugin: 'kotlin'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
@@ -20,6 +21,26 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+
+def bintrayUser = project.ext.properties.bintrayUser ?: System.getenv('BINTRAY_ACCESS_USR')
+def bintrayKey = project.ext.properties.bintrayKey ?: System.getenv('BINTRAY_ACCESS_PSW')
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username "$bintrayUser"
+                password "$bintrayKey"
+            }
+            url "https://api.bintray.com/maven/usbpc/testingStuff/xyz.usbpc.mcrcon/;publish=1"
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
 
 compileKotlin {
