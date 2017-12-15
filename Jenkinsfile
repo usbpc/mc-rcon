@@ -17,18 +17,16 @@ pipeline {
         sh 'gradle jar'
       }
     }
-    withCredentials([usernamePassword(credentialsId: 'bintray-usbpc', passwordVariable: 'bintrayKey', usernameVariable: 'bintrayUser')]) {
-      stage('Archive') {
-        parallel {
-          stage('Archive') {
-            steps {
-              archiveArtifacts 'build/libs/*'
-            }
+    stage('Archive') {
+      parallel {
+        stage('Archive') {
+          steps {
+            archiveArtifacts 'build/libs/*'
           }
-          stage('Publish') {
-            steps {
-              sh 'echo Hello World'
-            }
+        }
+        stage('Publish') {
+          steps {
+            sh 'echo Hello World'
           }
         }
       }
