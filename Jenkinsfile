@@ -24,9 +24,11 @@ pipeline {
             archiveArtifacts 'build/libs/*'
           }
         }
-        stage('Publish') {
-          steps {
-            sh 'echo Hello World'
+        withCredentials([usernamePassword(credentialsId: 'bintray-usbpc', passwordVariable: 'bintrayKey', usernameVariable: 'bintrayUser')]) {
+          stage('Publish') {
+            steps {
+              sh 'echo Hello World'
+            }
           }
         }
       }
