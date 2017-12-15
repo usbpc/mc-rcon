@@ -29,7 +29,7 @@ pipeline {
             BINTRAY_ACCESS = credentials('bintray-usbpc')
           }
           steps {
-            sh 'echo Hello $BINTRAY_ACCESS_USR'
+            sh 'gradle publish'
           }
         }
       }
