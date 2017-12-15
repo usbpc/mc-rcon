@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''echo "$JENKINS_REPOSITORY"
+        sh '''printenv
 gradle clean'''
       }
     }
