@@ -9,8 +9,7 @@ pipeline {
   stages {
     stage('Inizialize') {
       steps {
-        sh '''printenv
-gradle clean'''
+        sh '''gradle clean'''
       }
     }
     stage('Build') {
